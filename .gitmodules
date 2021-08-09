@@ -1,0 +1,9 @@
+[submodule "catkin_ws/src/utils_pkg"]
+	path = catkin_ws/src/utils_pkg
+	url = git@github.com:kuolunwang/utils_pkg.git
+[submodule "catkin_ws/src/robot/vx300s"]
+	path = catkin_ws/src/robot/vx300s
+	url = git@github.com:kuolunwang/VX300s.git
+[submodule "catkin_ws/src/robot/ur5"]
+	path = catkin_ws/src/robot/ur5
+	url = git@github.com:kuolunwang/UR5.git
