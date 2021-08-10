@@ -1,0 +1,22 @@
+group "00_calibration" {   
+    cmd "01_realsense_camera" {
+        exec = "roslaunch realsense2_camera rs_rgbd.launch";
+        host = "localhost";
+    }
+    
+}
+
+group "01_vx300s_bringup" {   
+    cmd "01_vx300s_setup" {
+        exec = "roslaunch vx300s_bringup vx300s_connect.launch";
+        host = "localhost";
+    }
+}
+
+group "02_ur5_bringup" {   
+
+}
+
+script "start_project" {
+
+}

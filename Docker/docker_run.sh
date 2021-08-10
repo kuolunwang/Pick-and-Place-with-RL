@@ -53,7 +53,7 @@ docker run \
     -v "/etc/localtime:/etc/localtime:ro" \
     -v "/dev:/dev" \
     -v "/var/run/docker.sock:/var/run/docker.sock" \
-    --working_dir "/home/kl/Pick-and-Place-with-RL" \
+    -w "/home/kl/Pick-and-Place-with-RL" \
     --user "root:root" \
     --name pnp \
     --network host \
