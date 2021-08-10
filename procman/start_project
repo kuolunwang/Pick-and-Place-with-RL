@@ -11,10 +11,18 @@ group "01_vx300s_bringup" {
         exec = "roslaunch vx300s_bringup vx300s_connect.launch";
         host = "localhost";
     }
+
+    cmd "02_vx300s_control" {
+        exec = "roscd vx300s_bringup && cd script/ && python3 vx300s_control.py";
+        host = "localhost";
+    }
 }
 
 group "02_ur5_bringup" {   
-
+    cmd "01_ur5_setup" {
+        exec = "roslaunch ur5_bringup ur5_control.launch";
+        host = "localhost";
+    }
 }
 
 script "start_project" {
