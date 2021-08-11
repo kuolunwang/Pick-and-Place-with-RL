@@ -2,7 +2,7 @@
 
 The package is for control dual arm vx300s.
 
-### Hardware Setup
+## Hardware Setup
 
 1. Setup dualarm environment.
 2. Check your computer can detect /dev/ttyUSB0 and /dev/ttyUSB1
