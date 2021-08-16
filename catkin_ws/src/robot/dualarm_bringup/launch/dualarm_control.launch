@@ -25,4 +25,11 @@
 
     <node pkg="dualarm_bringup" type="dualarm_control.py" name="dualarm_control_node" />
 
+    <!-- hand eye calibration -->
+    <node pkg="tf" type="static_transform_publisher" name="arm0_tf" 
+    args="0.379466 -0.001393 0.643495 0.711868 -0.011059 -0.702226 -0.000907 right_arm/base_link camera_link 100"/>
+
+    <node pkg="tf" type="static_transform_publisher" name="arm1_tf" 
+    args="0.798555 -0.0082965 0.0282185 -0.0415483 -0.000638724 0.999136 0.0005825 right_arm/base_link left_arm/base_link 100"/>
+
 </launch>
