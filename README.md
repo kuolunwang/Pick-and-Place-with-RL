@@ -7,7 +7,7 @@
     git clone --recursive git@github.com:kuolunwang/Pick-and-Place-with-RL.git
 ```
 
-*You should run this code on a GPU computer*
+*You can run this code on a GPU computer and CPU computer, but if you want to execute DL program, please change GPU computer to run*
 
 ---
 
@@ -18,7 +18,7 @@
 
 ## How to run
 ```
-    cd Docker && source docker_run.sh
+    cd Docker && source docker_run.sh [gpu or cpu]
     Docker $ cd catkin_ws && catkin_make
     Docker $ source environment.sh
 ```
