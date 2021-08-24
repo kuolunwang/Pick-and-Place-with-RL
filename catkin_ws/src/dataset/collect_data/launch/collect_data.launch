@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<launch>
+        <node pkg="collect_data" type="logger.py" name="collect_data_node" />
+</launch>
