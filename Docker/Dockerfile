@@ -179,6 +179,14 @@ RUN python3 -m pip install -U pip
 RUN python3 -m pip install \
     torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
 
+##################################### pybind11 ######################################
+
+RUN cd ${HOME} && git clone https://github.com/pybind/pybind11.git \
+    && cd pybind11 \
+    && mkdir build \
+    && cd build \
+    && cmake ../ -DCMAKE_INSTALL_PREFIX=${CMAKE_PREFIX_PATH} && make && make install 
+
 ####################################### procman ###########################################
 
 RUN cd ${HOME} && git clone https://github.com/lcm-proj/lcm \
