@@ -76,7 +76,9 @@ RUN apt-get -o Acquire::ForceIPv4=true update && apt-get -o Acquire::ForceIPv4=t
     ros-$ROS_DISTRO-ddynamic-reconfigure \
     ros-$ROS_DISTRO-perception \
     ros-$ROS_DISTRO-rgbd-launch \
-    ros-$ROS_DISTRO-joystick-drivers \
+    # ros-$ROS_DISTRO-joystick-drivers \
+    # ros-$ROS_DISTRO-ps3joy \
+    # ros-$ROS_DISTRO-wiimote \
     ros-$ROS_DISTRO-pointcloud-to-laserscan \
     ros-$ROS_DISTRO-robot-localization \
     ros-$ROS_DISTRO-spacenav-node \
@@ -106,6 +108,7 @@ RUN apt-get -o Acquire::ForceIPv4=true update && apt-get -o Acquire::ForceIPv4=t
     ros-$ROS_DISTRO-industrial-msgs \
     ros-$ROS_DISTRO-effort-controllers \
     ros-$ROS_DISTRO-dynamixel-sdk \
+    ros-$ROS_DISTRO-franka-* \
     python3-rosdep \
     python3-rosinstall \
     python3-rosinstall-generator \
@@ -137,7 +140,6 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # set the version of the realsense library
-
 ENV LIBREALSENSE_VERSION 2.48.0
 RUN cd ${HOME} && git clone https://github.com/IntelRealSense/librealsense.git \
     && cd librealsense \
@@ -170,22 +172,20 @@ RUN pip3 install \
     wandb \
     virtualenv \
     pytest \
+    flask \
+    flask-socketio \
+    loguru \
+    pymongo \
+    tensorflow \
+    tqdm \
     modern_robotics
-    
+
 ##################################### Pytorch ######################################
 
 RUN python3 -m pip install -U pip 
 
 RUN python3 -m pip install \
     torch==1.9.0+cu111 torchvision==0.10.0+cu111 torchaudio==0.9.0 -f https://download.pytorch.org/whl/torch_stable.html
-
-##################################### pybind11 ######################################
-
-RUN cd ${HOME} && git clone https://github.com/pybind/pybind11.git \
-    && cd pybind11 \
-    && mkdir build \
-    && cd build \
-    && cmake ../ -DCMAKE_INSTALL_PREFIX=${CMAKE_PREFIX_PATH} && make && make install 
 
 ####################################### procman ###########################################
 
@@ -203,13 +203,13 @@ RUN cd ${HOME} && git clone https://github.com/ARG-NCTU/procman \
     && cmake .. \
     && make install
 
-############################# custom gazebo ###############################
+##################################### pybind11 ######################################
 
-RUN mkdir -p $HOME/.gazebo \
-    && cd $HOME/.gazebo \
-    && git clone https://github.com/osrf/gazebo_models \
-    && mv gazebo_models models \
-    && cd
+RUN cd ${HOME} && git clone https://github.com/pybind/pybind11.git \
+    && cd pybind11 \
+    && mkdir build \
+    && cd build \
+    && cmake ../ -DCMAKE_INSTALL_PREFIX=${CMAKE_PREFIX_PATH} && make && make install 
 
 ##################################### setting #####################################
 
