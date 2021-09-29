@@ -7,3 +7,6 @@
 [submodule "catkin_ws/src/robot/ur5"]
 	path = catkin_ws/src/robot/ur5
 	url = git@github.com:kuolunwang/UR5.git
+[submodule "catkin_ws/src/algorithm/learning_pnp"]
+	path = catkin_ws/src/algorithm/learning_pnp
+	url = git@github.com:kuolunwang/learning-pick-and-place.git
